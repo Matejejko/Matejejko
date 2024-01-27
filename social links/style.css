@@ -1,0 +1,105 @@
+@font-face {
+    font-family: font;
+    src: url(assets/fonts/static/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-family: fontname;
+    src: url(assets/fonts/static/Inter-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: locality;
+    src: url(assets/fonts/static/Inter-Bold.ttf);
+}
+
+@font-face {
+    font-family: list;
+    src: url(assets/fonts/static/Inter-SemiBold.ttf);
+}
+body {
+    background-color: hsl(0, 0%, 8%);
+}
+
+.square {
+    width: 450px;
+    height: 700px;
+    background-color: hsl(0, 0%, 12%);
+    border-radius: 14px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute; 
+    display: flex;
+    justify-content: center;
+    
+}
+
+img {
+    border-radius: 70%;
+    position: relative;
+    float: none;
+    height: 15%;
+    width: auto;
+    top: 6%;
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    color: hsl(0, 0%, 100%);
+    font-family: fontname;
+    font-size: x-large;
+    justify-content: center;
+    position: inherit;
+    top: 22%;
+}
+
+h4 {
+    top: 28%;
+    position: inherit;
+    color: hsl(75, 94%, 57%);
+    font-family: locality;
+    font-size: small;
+}
+
+.developer {
+    top: 34%;
+    position: inherit;
+    color: hsl(0, 0%, 100%);
+    font-size: medium;
+    font-family: font;
+}
+
+
+.list {
+    position: inherit;
+    top: 40%;
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+}
+
+.list dt {
+    background-color: hsl(0, 0%, 20%);
+    border-radius: 8px;
+    padding: 15px 100px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+    color: hsl(0, 0%, 100%);
+    font-family: list; 
+    font-size: large;
+}
+
+.text {
+    text-decoration: none;
+}
+
+.list dt:hover {
+    text-decoration: none;
+    color: hsl(0, 0%, 8%);
+    background-color: hsl(75, 94%, 57%);
+}
