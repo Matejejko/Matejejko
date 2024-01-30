@@ -1,0 +1,112 @@
+@font-face {
+    font-family: learning;
+    src: url(assets/fonts/static/Figtree-ExtraBold.ttf);
+}
+@font-face {
+    font-family: date;
+    src: url(assets/fonts/Figtree-VariableFont_wght.ttf)
+}
+@font-face {
+    font-family: h1;
+    src: url(assets/fonts/static/Figtree-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: text;
+    src: url(assets/fonts/Figtree-VariableFont_wght.ttf);
+}
+
+body {
+    background-color: hsl(47, 88%, 63%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+}
+
+.square {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: hsl(0, 0%, 7%);
+    box-shadow: 10px 10px;
+    height: 550px;
+    width: 400px;
+
+    justify-content: center;
+    display: absolute;
+
+
+}
+
+.img {
+    height: 210px;
+    top: 25px;
+    left: 25px;
+    position: relative;
+    border-radius: 20px;
+}
+
+.learning {
+    position: relative;
+    top: 24px;
+    left: 25px;
+
+    font-family: learning;
+    background-color: hsl(47, 88%, 63%);
+    width: 80px;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+}
+
+.date {
+    font-family: date;
+    position: relative;
+    top: 20px;
+    left: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.h1 {
+    font-family: h1;
+    font-size: 28px;
+    left: 25px;
+    top: 15px;
+    position: relative;
+    cursor: url(assets/Link.cur), auto;
+}
+
+.text {
+    position: relative;
+    left: 25px;
+    top: 20px;
+    color: hsl(0, 0%, 50%);
+    font-family: text;
+}
+
+.avatar {
+    position: relative;
+    left: 25px;
+    top: 40px;
+    width: 35px;
+    height: auto;
+}
+
+.name {
+    font-family: h1;
+    position: relative;
+    left: 74px;
+    top: -6px;
+}
+
+h1:hover {
+ color: hsl(47, 88%, 63%);
+
+}
+
