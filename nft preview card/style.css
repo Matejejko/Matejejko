@@ -1,0 +1,156 @@
+@font-face {
+    font-family: equi;
+    src: url(Outfit/static/Outfit-Medium.ttf);
+}
+@font-face {
+    font-family: text;
+    src: url(Outfit/static/Outfit-Thin.ttf);
+}
+@font-face {
+    font-family: price;
+    src: url(Outfit/static/Outfit-Bold.ttf);
+}
+@font-face {
+    font-family: days;
+    src: url(Outfit/Outfit-VariableFont_wght.ttf);
+}
+
+body {
+    background-color: hsl(217, 54%, 11%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+}
+
+.square {
+    height: 680px;
+    width: 420px;
+    background-color: hsl(216, 50%, 16%);
+    border-radius: 20px;
+    box-shadow: 0px 25px 0px 15px hsla(214, 51%, 9%, 0.363), 0px 20px 0px 50px hsla(215, 57%, 9%, 0.164);
+
+}
+
+.img {
+    position: relative;
+    width: 360px;
+    left: 30px;
+    top: 30px;
+    border-radius: 10px;
+}
+
+.equi {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    left: 30px;
+    top: 50px;
+    font-family: equi;
+    font-size: 25px;
+}
+
+.text {
+    color: hsl(215, 51%, 70%);
+    position: relative;
+    left: 30px;
+    top: 50px;
+    font-family: text;
+    font-size: 19px;
+}
+
+.eth {
+    position: relative;
+    left: 30px;
+    top: 50px;
+    width: 13px;
+}
+
+.price {
+    color: hsl(178, 100%, 50%);
+    position: relative;
+    left: 52px;
+    top: 10px;
+    font-family: price;
+}
+
+.days {
+    color: hsl(215, 51%, 70%);
+    font-family: days;
+    font-size: 18px;
+    position: relative;
+    left: 310px;
+    top: -70px;
+}
+
+.clock {
+    position: relative;
+    left: 285px;
+    width: 20px;
+    top: -27px;
+}
+
+.line {
+    background-color: hsla(215, 52%, 70%, 0.397);
+    width: 360px;
+    height: 0.1px;
+    position: relative;
+    left: 30px;
+    top: -60px;
+}
+
+.avatar {
+    position: relative;
+    width: 45px;
+    left: 30px;
+    top: -35px;
+    border: 1px solid white;
+    border-radius: 40px;
+}
+
+.creator {
+    position: relative;
+    left: 90px;
+    top: -91px;
+    color: hsl(215, 51%, 70%);
+    font-family: days;
+    font-size: 18px;
+}
+
+.name {
+    text-decoration: none;
+    color: white;
+}
+
+p a:hover {
+    color: hsl(178, 100%, 50%);
+}
+
+
+a.equi:hover {
+    color: hsl(178, 100%, 50%);
+}
+
+.overlay {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    border-radius: 10px;
+    top: -723px;
+    left: 30px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: hsl(178, 100%, 50%, 0.5);
+}
+
+.eye {
+    position: absolute;
+    left: 160px;
+    top: 160px;
+}
+
+.square a:hover .overlay {
+    opacity: 1;
+}
+
+
