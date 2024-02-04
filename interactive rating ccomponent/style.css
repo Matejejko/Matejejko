@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+body {
+    background-color: hsl(216, 12%, 8%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    
+}
+
+.square {
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+    background-color: hsl(213, 19%, 18%);
+    border: 1px solid hsl(213, 19%, 18%, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 10px -300px 400px 0px inset;
+}
+
+.star {    
+    position: relative;
+    width: 20px;    
+    left: 15px;
+    top: 15px;
+}
+.round {
+    border-radius: 50%;
+    background-color: hsl(216, 12%, 54%, 0.1);
+    width: 50px;
+    height: 50px;
+    top: 35px;
+    left: 35px;
+    position: relative;
+}
+
+h1 {
+    position: relative;
+    left: 35px;
+    top: 40px;
+    font-family: 'Overpass', sans-serif;
+    color: white;
+    font-weight: normal;
+}
+
+.text {
+    color: hsl(217, 12%, 63%);
+    position: relative;
+    top: 35px;
+    left: 35px;
+    font-family: 'Overpass', sans-serif;
+    font-size: 21px;
+    line-height: 30px;
+}
+
+.button {
+    font-family: 'Overpass', sans-serif;
+    font-weight: lighter;
+    font-size: medium;
+    color: white;
+    background-color: hsl(25, 97%, 53%);
+    height: 50px;
+    width: 400px;
+    left: 50px;
+    position: relative;
+    top: 130px;
+    text-align: center;
+    line-height: 47px;
+    letter-spacing: 7px;
+    border-radius: 50px;
+}
+
+.button:hover {
+    background-color: white;
+    color: hsl(25, 97%, 53%);
+    cursor: pointer;
+}
+/** buttons only below **/
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 90px;
+    left: 40px;
+    top: 70px;
+    cursor: pointer;
+    font-size: 25px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: inline;
+    color: hsl(217, 12%, 63%);
+
+}
+
+span {
+    text-align: center;
+    line-height: 65px;
+    font-family: 'Overpass', sans-serif;        
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+  /* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 60px;
+    background-color: hsl(216, 12%, 54%, 0.2);
+    border-radius: 50%;
+}
+
+  /* On mouse-over */
+.container:hover input ~ .checkmark {
+    background-color: hsl(217, 12%, 63%);
+    color: white;
+}
+
+/* When the radio button is selected, add a orange background */
+.container input:checked ~ .checkmark {
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+}

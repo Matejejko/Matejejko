@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.6">
+        <link rel="stylesheet" href="style2.css">
+        <title>Thanks</title>
+        
+    </head>
+    <body>
+        <div class="square">
+            <img src="images/illustration-thank-you.svg" alt="thanks" class="img">
+
+            
+            <h1>Thank you!</h1>
+            
+            <p>
+                We appreciate you taking the time to give a rating. <br>
+                If you ever need more suppot, don't hesitate to <br>
+                get in touch!
+            </p>
+            <div class="xto5" id="result"></div>
+                <script>
+                    var selectedValue = localStorage.getItem("selectedValue");
+                    document.getElementById("result").textContent = "You selected " + selectedValue + " out of 5";
+                </script>
+        </div>
+    
+    
+        <script src="index.js"></script>
+    </body>
+</html>
