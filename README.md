@@ -1,5 +1,8 @@
 ### Hi there 👋
-
+I'm a begginer programmer. RN all i do (in the aspect of programming) is for fun.
+🔭 I’m currently working on Interactive card details form
+📫 How to reach me: best way is via instagram on @Matejejko
+⚡ Fun fact Japanese is easier then slovak.
 <!--
 **Matejejko/Matejejko** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
