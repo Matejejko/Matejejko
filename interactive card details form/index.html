@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    
+
+    <title>Card details</title>
+</head>
+<body>
+    
+    
+    <picture>
+        <source media="(min-width: 1070px)" srcset="images/bg-main-desktop.png">
+        <img class="sideimg" src="images/bg-main-mobile.png" alt="bg-main-mobile">
+    </picture>
+    
+    <div class="text2">
+        <img class="itsdone" src="images/icon-complete.svg">
+        <h1 class="THANKYOU">THANK YOU!</h1>
+        <p class="THANKYOU2">we'ce added your card details</p>
+        <a href="https://www.frontendmentor.io/home"></a><div class= "button">Continue</div></a>
+    </div>    
+        
+    <div class="text">
+        <div>
+            <h1>CARDHOLDER NAME</h1>
+            <input placeholder="e.g. Jane Appleseed" type="text" id="cardname" name="name" class="input">
+        </div>
+            <br>
+        <div>
+            <h1>CARD NUMBER</h1>
+            <input placeholder="e.g. 1234 5678 9123 0000" type="text" id="cardnumber" name="number" class="input">
+        </div> 
+        <br>           
+        <div class="inline">
+            <div>
+                <h1>EXP. DATE (MM/YY)</h1>
+                <input placeholder="MM" type="text" name="MM" id="MM" class="input">
+                <input placeholder="YY" type="text" name="YY" id="YY" class="input">
+            </div>    
+                <p id="errordate" class="errordate">wrong YY</p>
+                <p id="errordate2" class="errordate2">wrong MM</p>
+                <p id="errormsgCVC" class="errormsgCVC">invalid CVC</p>
+                <p id="errornumber" class="errornumber">wrong number</p>
+                <p id="errorname" class="errorname">wrong name</p>
+                    
+            <div class="right">
+                <h1>CVC</h1>
+                <input placeholder="e.g. 123" type="text" name="CVC" id="CVC" class="input">
+            </div>
+        </div>
+        <button id="submitButton" class="button">Confirm</button>
+    </div>
+
+    
+    <div class="cardbackyes">            
+        <img src="images/bg-card-back.png" alt="cardback" class="cardback"> 
+        <div class="displayCVC" id="displayCVC">000</div>
+    </div>
+
+
+    <div class="cardfrontyes">    
+        <img src="images/bg-card-front.png" alt="cardfront" class="cardfront">
+        <img class="logo" src="images/card-logo.svg" alt="logo">
+        <div class="displayname" id="displayname">JANE APPLESEED</div>
+        <div class="displaynumber" id="displaynumber">0000 0000 0000 0000</div>  
+        <div class="displaymonth" id="displaymonth">00</div> 
+        <div class="slash">/</div>  
+        <div class="displayyear" id="displayyear">00</div>    
+    </div>
+
+
+    <script src="javascrypt.js"></script>
+</body>
+</html>

@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+/* writing info */
+body {
+    display: flex;  
+    justify-content: center;
+    
+}
+
+
+.text {
+    position: absolute;
+    max-width: 600px;
+    bottom: 20%;
+    display: block;
+ 
+}
+
+h1 {
+    color: hsl(278, 68%, 11%);  
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: small;
+
+}
+
+.inline {
+    display: inline-flex;
+    position: absolute;   
+}
+.inline .input {
+    max-width: 75px;
+}
+
+
+.right {
+    left: 20px;
+    position: relative;
+    
+}
+.inline .right .input {
+    max-width: 151px;
+}
+
+.input {       
+    width: 325px;
+    height: 45px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1.5px solid lightgrey;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 0px 20px -18px;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: medium;
+     
+}
+  
+.input:hover {
+    border: 2px solid hsl(278, 68%, 11%, 0.3);
+    box-shadow: 0px 0px 20px -17px;
+}
+  
+.input:active {
+    transform: scale(0.95);
+}
+  
+.input:focus {
+    border: 2px solid hsl(278, 68%, 11%);
+}
+
+
+.button {
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: large;
+    background-color: hsl(278, 68%, 11%, 0.95);
+    text-align: center; 
+    width: 325px;
+    height: 45px;
+    border-radius: 10px;
+    line-height: 44px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    position: relative;
+    top: 120px;
+    border: 0;   
+}
+
+.button:hover {
+    background-color: hsl(278, 68%, 11%, 0.6);
+    transition: 0.1s;
+    cursor: pointer;
+}
+/* writing info  END  */
+
+.itsdone {
+    left: 130px;
+    top: 0px;
+    position: relative;
+}
+.THANKYOU {
+    position: relative;
+    left: 100px;
+    top: 20px;
+    font-size: x-large;
+}
+.THANKYOU2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: large;
+    color: hsl(279, 6%, 55%);
+    position: relative;
+    left: 30px;
+    top: 60px;
+}
+.text2 {
+    position: absolute;
+    max-width: 600px;
+    bottom: 20%;
+    display: none;
+
+}
+
+/* ERROR TEXT */
+
+.errordate {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    color: hsl(0, 100%, 66%);
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 90px;
+}
+.errordate2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    color: hsl(0, 100%, 66%);
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 10px;   
+}
+
+.errormsgCVC {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    color: hsl(0, 100%, 66%);
+    display: none;
+    position: absolute;
+    left: 220px;
+    top: 70px;
+}
+
+.error-input {
+    border-color: hsl(0, 100%, 66%);
+  }
+.errornumber {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    color: hsl(0, 100%, 66%);
+    position: absolute;
+    display: none;
+    top: -25px;
+    left: 20px;
+}
+.errorname {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    color: hsl(0, 100%, 66%);
+    position: absolute;
+    top: -120px;
+    left: 20px;
+    display: none;
+}
+
+/* ERROR TEXT END*/
+
+.sideimg {
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    height: 250px;
+    width: 100%;
+   
+}
+
+
+.cardbackyes {
+    position: absolute;
+    width: 300px;
+    right: 6%;
+    top: 2%; 
+}
+.cardback {
+    position: absolute;
+    width: 300px;
+}
+.displayCVC {
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: small;
+    position: absolute;
+    left: 240px;
+    top: 73px;
+}
+
+.cardfrontyes {
+    position: absolute;
+    width: 300px;
+    top: 16%;
+    right: 18%; 
+}
+.cardfront {
+    position: absolute;
+    width: 300px; 
+}
+.logo {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+}
+.displayname {
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    position: relative;
+    left: 20px;
+    top: 100px;
+    letter-spacing: 2px;
+}
+.displaynumber {
+    color: white;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: large;
+    letter-spacing: 3px;
+    left: 20px;
+    top: 45px;
+}
+.displaymonth {
+    position: absolute;
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    left: 220px;
+    top: 133px;
+}
+.slash {
+    position: absolute;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    color: white;
+    left: 240px;
+    top: 132px;
+}
+.displayyear {
+    position: absolute;
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: x-small;
+    left: 250px;
+    top: 133px;
+}
+
+
+
+@media screen and (min-width: 620px) and (min-height: 820px) {
+    
+
+
+    .cardbackyes {
+        position: absolute;
+        width: 400px;
+        right: 16%;
+        top: 10%;
+        transition: 0.2s;
+    }
+    .cardback {
+        position: absolute;
+        width: 400px;
+    }
+    .displayCVC {
+        font-size: medium;
+        left: 320px;
+        top: 97px;
+        transition: 0.2s;  
+    }
+
+    .cardfrontyes {
+        position: absolute;
+        width: 400px;
+        top: 25%;
+        right: 28%;
+        transition: 0.2s;   
+    }
+    .cardfront {
+        width: 400px; 
+    }
+    .logo {
+        left: 25px;
+        top: 25px;
+        width: auto;
+        transition: 0.2s;
+    }
+    .displayname {
+        font-size: small;
+        position: relative;
+        left: 25px;
+        top: 130px;
+        letter-spacing: 3px;
+        transition: 0.2s;
+    }
+    .displaynumber {
+        font-size: x-large;
+        letter-spacing: 4px;
+        left: 25px;
+        top: 55px;
+        transition: 0.2s;
+    }
+    .displaymonth {
+        font-size: small;
+        left: 290px;
+        top: 177px;
+    }
+    .slash {
+        font-size: small;
+        left: 320px;
+        top: 176px;
+    }
+    .displayyear {
+        font-size: small;
+        left: 338px;
+        top: 177px;
+    }
+
+
+
+    .text {
+        bottom: 20%;
+    }
+    .text2 {
+        bottom: 20%;   
+    }
+}
+
+
+@media screen and (min-width: 1070px) {
+
+    body {
+        display: flex;  
+        align-items: center;
+        
+    }
+
+    .sideimg {
+        position: absolute;    
+        bottom: 0;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: 100%;
+    }
+
+    .text {
+        
+        position: absolute;
+        right: 20%;
+        top: 25%;
+         
+    }
+    .text2 {
+        position: absolute;
+        right: 20%;
+        top: 25%;
+    }
+
+    .cardbackyes {
+        position: absolute;
+        width: 450px;
+        left: 6%;
+        top: 50%;
+        transition: 0.2s;
+    }
+    .cardback {
+        position: absolute;
+        width: 450px;
+    }
+    .displayCVC {
+        font-size: medium;
+        left: 360px;
+        top: 110px;
+    }
+    .logo {
+        left: 25px;
+        top: 25px;
+        width: auto;
+        transition: 0.2s;
+    }
+    .displaynumber {
+        font-size: x-large;
+        letter-spacing: 4px;
+        left: 25px;
+        top: 55px;
+        transition: 0.2s;
+    }
+    .cardfrontyes {
+        position: absolute;
+        width: 450px;
+        top: 20%;
+        left: 2%;
+        transition: 0.2s;   
+    }
+    .cardfront {
+        width: 450px; 
+    }
+    .displayname {
+        left: 25px;
+        top: 150px;
+    }
+    .displaynumber {
+        letter-spacing: 5px;
+        left: 25px;
+        top: 75px;
+        transition: 0.2s;  
+    }
+    .displaymonth {
+        left: 330px;
+        top: 197px;
+    }
+    .slash {
+        left: 355px;
+        top: 195px;
+    }
+    .displayyear {
+        left: 370px;
+        top: 197px;
+    }
+    
+
+}
+@media screen and (min-width: 1270px){
+    .cardfrontyes {
+        left: 9%;  
+    }
+    .cardbackyes {
+        left: 15%;
+    }
+}
+
+/* desktop styles */
+@media screen and (min-width: 1400px){
+
+    .card {
+        display: flex;  
+        justify-content: center; 
+    }
+
+    .cardbackyes {
+        position: absolute;
+        width: 450px;
+        left: 20%;
+        top: 50%;
+        transition: 0.2s;
+    }
+    .cardback {
+        position: absolute;
+        width: 450px;
+    }
+
+    .cardfront {
+        position: absolute;
+        width: 450px; 
+    }
+    .cardfrontyes {
+        position: absolute;
+        width: 450px;
+        top: 20%;
+        left: 14%;
+        transition: 0.2s;   
+    }
+
+    .cardfront {
+        width: 450px; 
+    }
+}
