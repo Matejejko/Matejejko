@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Join us!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/glasses.png">
+</head>
+<body>
+    <div class="stuff">
+        <picture>
+            <source id="pcimg"  media="(min-width: 769px)" srcset="assets/images/illustration-sign-up-desktop.svg">
+            <img id="mobileimg" src="assets/images/illustration-sign-up-mobile.svg" alt="illustration-sign-up">        
+        </picture>
+        <h1>Stay updated!</h1>
+        <p class="text">Join 60,000+ product managers receiving <br>
+        monthly updates on:</p>
+        <div class="block">    
+            <div class="inline">
+              <img src="assets/images/icon-list.svg" alt="icon-list">
+              <p>Product discovery and building what matters</p>
+            </div>
+            <div class="inline">
+              <img src="assets/images/icon-list.svg" alt="icon-list">
+              <p>Measuring to ensure updates are a success</p>
+            </div>
+            <div class="inline">
+              <img src="assets/images/icon-list.svg" alt="icon-list">
+              <p>And much more!</p>
+            </div>
+        </div>
+        <strong><p class="email">Email address</p></strong>
+        <input id="email" type="text" name="email" class="input" placeholder="email@company.com">
+        <button id="submit">Subscribe to monthly newsletter</button>
+        <p class="error" id="error">Valid email required</p>
+    </div>
+    <script src="javascrypt.js"></script>
+</body>
+</html>

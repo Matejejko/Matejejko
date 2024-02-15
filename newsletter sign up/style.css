@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.stuff {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    font-family: "Roboto", sans-serif;
+    max-width: 100%;
+
+}
+#mobileimg {
+    position: relative;
+    width: 100%;
+}
+h1 {
+    position: relative;
+    padding-left: 5%;
+    font-size: 10vw;
+    font-weight: 700;
+    color: hsl(234, 29%, 20%);
+}
+.text {
+    position: relative;
+    font-weight: 400;
+    padding-left: 5%;
+    font-size: 4.5vw;
+}
+.block {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    padding-left: 5%;
+    padding-right: 40px;   
+    font-weight: 400;
+    color: hsl(234, 29%, 20%);
+    font-size: 4.5vw;
+  }
+  
+  .inline {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin-bottom: -2%;
+  }
+  
+  .inline img {
+    margin-right: 15px; /* Add some spacing between image and text */
+  }
+.email {
+    position: relative;
+    padding-left: 10%;
+    font-size: small;
+    top: 10px;
+    font-size: 3vw;
+}
+
+/* BUTTON */
+.input {
+    font-size: 3.5vw;
+    left:  50%;
+    transform: translateX(-50%);  
+    width: 80%;
+    position: relative;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+}
+  
+  .input:focus {
+    background-color: white;   
+    box-shadow: 13px 13px 100px #969696,
+               -13px -13px 100px #ffffff;
+    background: linear-gradient(90deg, rgb(255, 94, 121, 0.4), rgb(255, 67, 99, 0.4), rgb(255, 124, 2, 0.4));
+}
+button {
+    position: relative;
+    left:  50%;
+    transform: translateX(-50%);  
+    top: 20px;
+    width: 86%;
+    height: 55px;
+    border: none;
+    background-color: hsl(234, 29%, 20%);
+    color: white;
+    font-weight: 700;
+    border-radius: 15px;
+}
+button:hover {
+    background: linear-gradient(90deg, rgb(255, 94, 121, 0.7), rgb(255, 67, 99, 0.7), rgb(255, 124, 2, 0.7));
+    cursor: pointer;
+}
+/* ERROR*/
+.error {
+    position: relative;
+    top: -125px;
+    font-size: small;
+    padding-left: 60%;
+    color: red;
+    display: none;
+
+}
+.error-input {
+    background-color: hsla(0, 100%, 66%, 0.555);
+    border: 1px solid red;
+
+}
+
+
+  @media screen and (min-width: 425px){
+    h1 {
+        font-size: 7vw;
+    }
+    .text {
+
+        font-size: 3.5vw;
+    }
+    .block {
+
+        font-size: 3.5vw;
+      }
+      .email {
+
+        font-size: 3vw;
+    }
+    
+    /* BUTTON */
+    .input {
+        font-size: 3vw;
+    }
+
+}
+
+
+  @media screen and (min-width: 500px){
+    #mobileimg {        
+        opacity: 0.7;
+    }
+    h1 {
+        top: -200px;
+    }
+    .text {
+        top: -200px;
+    }
+    .block {
+        top: -150px;
+      }
+      .email {
+        top: -120px;
+    }
+    
+    /* BUTTON */
+    .input {
+        top: -137px;
+    }
+    button {
+        top: -110px;
+    }
+    .error {
+        top: -310px;
+        padding-left: 60%;
+        font-size: 3vw;
+    }
+}
+
+@media screen and (min-width: 769px){
+    body {
+        max-width: max-content;
+
+    }
+    #mobileimg {  
+        position: fixed;      
+        opacity: 1;
+        height: 70vw;
+        top: 20%;
+        padding-left: 20%;
+
+    }
+    h1 {
+        top: 20vw;
+    }
+    .text {
+        top: 18vw;
+        max-width: 45%;
+        padding-left: 2%;
+    }
+    .block {
+        top: 15vw;
+        max-width: 45%;
+        padding-left: 2%;
+      }
+      .email {
+        top: 18vw;
+    }
+    
+    /* BUTTON */
+    .input {
+        top: 15vw;
+    }
+    button {
+        top: 18vw;
+    }
+    .error {
+        top: -30px;
+        padding-left: 60%;
+        font-size: 3vw;
+    }
+}
+@media screen and (min-width: 1025px){
+    body {
+        background-color: hsl(235, 18%, 26%);
+        
+    }
+    .stuff {
+        width: 1000px;
+        height: 700px;
+        border-radius: 15px;
+        background-color: white;
+        left:  50%;
+        transform: translateX(-50%);
+        margin-top: 5%;
+   
+    }
+
+    #mobileimg {  
+        position: absolute;      
+        opacity: 1;
+        height: 680px;
+        top: 10px;
+        padding-left: 260px;
+    }
+    h1 {
+        position: relative; 
+        top: 0px;
+        font-size: 70px;
+        
+    }
+    .text {
+        top: -10px;
+        font-size: 24px;
+        max-width: 50%;
+        padding-left: 50px;
+    }
+    .block {
+        top: -10px;
+        font-size: 24px;
+        max-width: 45%;
+        padding-left: 50px;
+      }
+      .email {
+        font-size: 16px;
+        top: -21px;
+    }
+    
+    /* BUTTON */
+    .input {
+        position: relative;
+        top: -40px;
+        width: 420px;
+        font-size: 1vw;
+        left: 270px;
+        
+    }
+    button {
+        position: relative;
+        top: 40px;
+        width: 460px;
+        left:  -190px;
+    }
+    .error {
+        top: -128px;
+        padding-left: 35%;
+        font-size: 16px;
+    }
+}

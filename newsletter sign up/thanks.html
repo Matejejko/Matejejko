@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/love.png">
+</head>
+<body>
+    <div>
+        <img src="assets/images/icon-success.svg" alt="success">
+        <h1>Thanks for subscribing!</h1>
+        <p>A confirmation email has been sent to <strong id="displayArea"></strong>. 
+            Please open it and click the button inside to confirm your subscription</p>
+        <script>
+            var userInput = localStorage.getItem("userInput");
+            document.getElementById("displayArea").textContent = userInput;
+        
+        </script>
+        <button>Dismiss Message</button>
+    </div>
+    <script src="javascrypt.js"></script>
+</body>
+</html>
