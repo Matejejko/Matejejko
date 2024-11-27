@@ -1,4 +1,4 @@
 # I'm Matej 👋
 
 <img alt="my stats" align="left" width="400px" height="300px" src="https://github-readme-stats.vercel.app/api?username=Matejejko&theme=radical&show_icons=true">
-<img alt="languages" align="right" width="400px" height="300px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Matejejko&layout=compact">
+<img alt="languages" align="right" width="400px" height="250px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Matejejko&layout=compact">
