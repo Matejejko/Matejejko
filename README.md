@@ -10,7 +10,7 @@
 
 ###
 
-<img align="right" height="200" src="https://blog.jitter.video/content/images/2022/01/perfect-loop-cube.gif"  />
+<img align="right" height="200" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWM3bnczZmo0amZ6cWo2N2EwN2V0a2lyaTBmcGg5bXQxdzZ4NW1tMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dCfj8RNNMo8AY6AAs2/giphy.webp"  />
 
 ###
 
