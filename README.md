@@ -27,6 +27,12 @@
 
 ###
 
+![](https://github-readme-stats.vercel.app/api?username=matejejko&theme=radical&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=matejejko&theme=radical&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=matejejko&theme=radical&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+
+###
+
 <h3 align="left">Connect with me:<</h3>
 <p align="left">
 <a href="https://sk.linkedin.com/in/matej-p-a2abb72b2?trk=people-guest_people_search-card&original_referer=https%3A%2F%2Fwww.linkedin.com%2F" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="matej papaj" height="30" width="40" /></a>
