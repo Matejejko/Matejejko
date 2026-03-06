@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hey, I'm Matej 👋
+<img src="https://capsule-render.vercel.app/api?type=waving&color=27ae60&height=200&section=header&text=Hey,%20I'm%20Matej%20%F0%9F%91%8B&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=35&" width="100%" />
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=27AE60&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=Cloud+Developer+Intern+%40+Deutsche+Telekom;CS+Student+%7C+Linux+Nerd+%7C+K8s+Explorer)](https://matejejko.github.io)
 
@@ -76,3 +76,4 @@ I'm a computer science student in a **dual education program** at **Deutsche Tel
   
   ![Profile Views](https://komarev.com/ghpvc/?username=matejejko&color=27ae60&style=flat-square&label=Profile+Views)
 </div>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=27ae60&height=120&section=footer" width="100%" />
