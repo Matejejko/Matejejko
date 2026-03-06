@@ -2,7 +2,7 @@
 
 # Hey, I'm Matej 👋
 
-**CS Student** · **Cloud Developer Intern @ Deutsche Telekom** · **Linux Enthusiast**
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=27AE60&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=Cloud+Developer+Intern+%40+Deutsche+Telekom;CS+Student+%7C+Linux+Nerd+%7C+K8s+Explorer)](https://matejejko.github.io)
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-matejejko.github.io-27ae60?style=for-the-badge&logo=googlechrome&logoColor=white)](https://matejejko.github.io)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Matej%20Papaj-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://sk.linkedin.com/in/matej-p-a2abb72b2)
