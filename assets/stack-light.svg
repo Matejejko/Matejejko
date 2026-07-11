@@ -1,0 +1,51 @@
+<svg width="840" height="264" viewBox="0 0 840 264" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stack: cloud and infrastructure — Kubernetes, Docker, Terraform, AWS; systems — Arch Linux, Bash, PowerShell; languages — Python, JavaScript, HTML/CSS; tooling — Git, Vim, VS Code">
+  <style>
+    .num  { font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace; font-size: 11px; }
+    .lbl  { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; }
+    .item { font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace; font-size: 14px; }
+    .unit { opacity: 0; transform: translateY(10px); animation: rise 0.5s ease-out forwards; }
+    .led  { animation: blink 2.2s ease-in-out infinite; }
+    @keyframes rise  { to { opacity: 1; transform: translateY(0); } }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
+    @media (prefers-reduced-motion: reduce) {
+      .unit { animation: none; opacity: 1; transform: none; }
+      .led  { animation: none; }
+    }
+  </style>
+
+  <g class="unit" style="animation-delay:.10s">
+    <rect x="1.5" y="4" width="837" height="56" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/>
+    <text class="num" x="26" y="36" fill="#8c959f">01</text>
+    <text class="lbl" x="58" y="36" fill="#57606a">CLOUD &amp; INFRASTRUCTURE</text>
+    <text class="item" x="272" y="37" fill="#1f2328" xml:space="preserve">Kubernetes · Docker · Terraform · AWS</text>
+    <circle cx="792" cy="32" r="3.5" fill="#d0d7de"/>
+    <circle class="led" cx="808" cy="32" r="3.5" fill="#1a7f37"/>
+  </g>
+
+  <g class="unit" style="animation-delay:.25s">
+    <rect x="1.5" y="70" width="837" height="56" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/>
+    <text class="num" x="26" y="102" fill="#8c959f">02</text>
+    <text class="lbl" x="58" y="102" fill="#57606a">SYSTEMS</text>
+    <text class="item" x="272" y="103" fill="#1f2328" xml:space="preserve">Arch Linux / CachyOS · Bash · PowerShell</text>
+    <circle cx="792" cy="98" r="3.5" fill="#d0d7de"/>
+    <circle class="led" style="animation-delay:.6s" cx="808" cy="98" r="3.5" fill="#1a7f37"/>
+  </g>
+
+  <g class="unit" style="animation-delay:.40s">
+    <rect x="1.5" y="136" width="837" height="56" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/>
+    <text class="num" x="26" y="168" fill="#8c959f">03</text>
+    <text class="lbl" x="58" y="168" fill="#57606a">LANGUAGES</text>
+    <text class="item" x="272" y="169" fill="#1f2328" xml:space="preserve">Python · JavaScript · HTML/CSS</text>
+    <circle cx="792" cy="164" r="3.5" fill="#d0d7de"/>
+    <circle class="led" style="animation-delay:1.2s" cx="808" cy="164" r="3.5" fill="#1a7f37"/>
+  </g>
+
+  <g class="unit" style="animation-delay:.55s">
+    <rect x="1.5" y="202" width="837" height="56" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/>
+    <text class="num" x="26" y="234" fill="#8c959f">04</text>
+    <text class="lbl" x="58" y="234" fill="#57606a">TOOLING</text>
+    <text class="item" x="272" y="235" fill="#1f2328" xml:space="preserve">Git · Vim · VS Code</text>
+    <circle cx="792" cy="230" r="3.5" fill="#d0d7de"/>
+    <circle class="led" style="animation-delay:1.8s" cx="808" cy="230" r="3.5" fill="#1a7f37"/>
+  </g>
+</svg>
