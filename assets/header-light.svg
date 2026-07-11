@@ -1,0 +1,73 @@
+<svg width="840" height="170" viewBox="0 0 840 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Matej Papaj — DevOps intern at Deutsche Telekom, CS student at SPSE Kosice">
+  <style>
+    .name {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 44px; font-weight: 700; letter-spacing: -0.5px;
+    }
+    .tag {
+      font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+      font-size: 14px;
+    }
+    .cursor { animation: blink 1.1s step-end infinite; }
+    .line {
+      transform-box: fill-box; transform-origin: left center;
+      transform: scaleX(0); animation: grow 0.9s 0.3s ease-out forwards;
+    }
+    .edge {
+      stroke-dasharray: 100; stroke-dashoffset: 100;
+      animation: draw 0.8s ease-out forwards;
+    }
+    .node { opacity: 0; animation: show 0.4s ease-out forwards; }
+    .pulse {
+      transform-box: fill-box; transform-origin: center;
+      opacity: 0; animation: pulse 2.8s ease-out 1.6s infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes grow  { to { transform: scaleX(1); } }
+    @keyframes draw  { to { stroke-dashoffset: 0; } }
+    @keyframes show  { to { opacity: 1; } }
+    @keyframes pulse {
+      0%   { transform: scale(0.5); opacity: 0.9; }
+      70%  { transform: scale(1.9); opacity: 0; }
+      100% { transform: scale(1.9); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; }
+      .line { animation: none; transform: none; }
+      .edge { animation: none; stroke-dashoffset: 0; }
+      .node { animation: none; opacity: 1; }
+      .pulse { display: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1a7f37"/>
+      <stop offset="1" stop-color="#1a7f37" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- wordmark -->
+  <text class="name" x="36" y="82" fill="#1f2328">Matej Papaj<tspan class="cursor" fill="#1a7f37">&#9613;</tspan></text>
+  <text class="tag" x="38" y="116" xml:space="preserve"><tspan fill="#1a7f37" font-weight="700">&gt; </tspan><tspan fill="#57606a">devops intern @ deutsche telekom &#183; cs student @ sp&#353;e ko&#353;ice</tspan></text>
+  <rect class="line" x="38" y="134" width="260" height="3" rx="1.5" fill="url(#g)"/>
+
+  <!-- infrastructure graph -->
+  <g stroke="#d0d7de" stroke-width="1.5">
+    <line class="edge" pathLength="100" x1="605" y1="45"  x2="693" y2="28"  style="animation-delay:.20s"/>
+    <line class="edge" pathLength="100" x1="693" y1="28"  x2="788" y2="52"  style="animation-delay:.35s"/>
+    <line class="edge" pathLength="100" x1="605" y1="45"  x2="648" y2="95"  style="animation-delay:.50s"/>
+    <line class="edge" pathLength="100" x1="648" y1="95"  x2="745" y2="110" style="animation-delay:.65s"/>
+    <line class="edge" pathLength="100" x1="745" y1="110" x2="788" y2="52"  style="animation-delay:.80s"/>
+    <line class="edge" pathLength="100" x1="745" y1="110" x2="806" y2="128" style="animation-delay:.95s"/>
+  </g>
+  <circle class="pulse" cx="648" cy="95" r="10" fill="none" stroke="#1a7f37" stroke-width="2"/>
+  <g>
+    <circle class="node" style="animation-delay:.40s" cx="605" cy="45"  r="7" fill="#ffffff" stroke="#8c959f" stroke-width="1.5"/>
+    <circle class="node" style="animation-delay:.55s" cx="693" cy="28"  r="7" fill="#ffffff" stroke="#8c959f" stroke-width="1.5"/>
+    <circle class="node" style="animation-delay:.70s" cx="788" cy="52"  r="7" fill="#ffffff" stroke="#8c959f" stroke-width="1.5"/>
+    <circle class="node" style="animation-delay:.85s" cx="648" cy="95"  r="7" fill="#dafbe1" stroke="#1a7f37" stroke-width="2"/>
+    <circle class="node" style="animation-delay:1.00s" cx="745" cy="110" r="7" fill="#ffffff" stroke="#8c959f" stroke-width="1.5"/>
+    <circle class="node" style="animation-delay:1.15s" cx="806" cy="128" r="7" fill="#ffffff" stroke="#8c959f" stroke-width="1.5"/>
+  </g>
+</svg>
