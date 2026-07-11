@@ -1,0 +1,44 @@
+<svg width="840" height="56" viewBox="0 0 840 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="">
+  <style>
+    .l {
+      transform-box: fill-box;
+      transform: scaleX(0);
+      animation: grow 1s 0.25s ease-out forwards;
+    }
+    .l-left  { transform-origin: right center; }
+    .l-right { transform-origin: left center; }
+    .dot { opacity: 0; animation: show 0.4s ease-out forwards; }
+    .pulse {
+      transform-box: fill-box; transform-origin: center;
+      opacity: 0; animation: pulse 3s ease-out 1.2s infinite;
+    }
+    @keyframes grow { to { transform: scaleX(1); } }
+    @keyframes show { to { opacity: 1; } }
+    @keyframes pulse {
+      0%   { transform: scale(0.5); opacity: 0.8; }
+      70%  { transform: scale(2.2); opacity: 0; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .l { animation: none; transform: none; }
+      .dot { animation: none; opacity: 1; }
+      .pulse { display: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb950" stop-opacity="0"/>
+      <stop offset="1" stop-color="#3fb950" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="gr" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb950" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#3fb950" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect class="l l-left"  x="130" y="27.25" width="274" height="1.5" fill="url(#gl)"/>
+  <rect class="l l-right" x="436" y="27.25" width="274" height="1.5" fill="url(#gr)"/>
+  <circle class="pulse" cx="420" cy="28" r="7" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+  <circle class="dot" cx="420" cy="28" r="4" fill="#0d2417" stroke="#3fb950" stroke-width="1.5"/>
+</svg>

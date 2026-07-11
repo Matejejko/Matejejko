@@ -55,6 +55,14 @@ Away from work and school I daily-drive Arch-based Linux (CachyOS), run a small 
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=matejejko&layout=compact&hide_border=true&bg_color=00000000&title_color=3fb950&text_color=8b949e" alt="Most used languages" height="165">
 </picture>
 
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=matejejko&bg_color=00000000&color=8b949e&line=3fb950&point=e6edf3&area=true&area_color=3fb950&hide_border=true&hide_title=true&days=31">
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=matejejko&bg_color=00000000&color=57606a&line=1a7f37&point=1f2328&area=true&area_color=1a7f37&hide_border=true&hide_title=true&days=31">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=matejejko&bg_color=00000000&color=8b949e&line=3fb950&point=e6edf3&area=true&area_color=3fb950&hide_border=true&hide_title=true&days=31" alt="Contribution activity over the last month" width="100%">
+</picture>
+
 </div>
 
 <br>
@@ -62,9 +70,11 @@ Away from work and school I daily-drive Arch-based Linux (CachyOS), run a small 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg">
-  <img src="assets/footer-dark.svg" alt="Terminal session ending — exit, logout, connection to github.com closed" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/divider-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/divider-light.svg">
+  <img src="assets/divider-dark.svg" alt="" width="100%">
 </picture>
+
+<sub>[Portfolio](https://matejejko.github.io) · [LinkedIn](https://sk.linkedin.com/in/matej-p-a2abb72b2) · [Instagram](https://instagram.com/matejejko)</sub>
 
 </div>
