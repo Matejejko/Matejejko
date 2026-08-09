@@ -10,17 +10,13 @@
 
 <br>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/terminal-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/terminal-light.svg">
-  <img src="assets/terminal-dark.svg" alt="Terminal window running fastfetch with a short summary of who I am" width="100%">
-</picture>
+<img src="assets/terminal.svg" alt="Terminal running fastfetch. A text-art portrait rendered from my profile picture sits beside the output: CachyOS Linux, DevOps intern at Deutsche Telekom, CS at SPŠE Košice on a dual program, working with Kubernetes, Docker, AWS and Terraform" width="100%">
 
 </div>
 
 ## About
 
-I took a slightly unusual route into tech — I started out studying hotel management before switching to computer science. Today I'm in a **dual education program** between **Deutsche Telekom** and **SPŠE Košice**: half academic theory, half hands-on work on real cloud infrastructure.
+I came to tech sideways — I started out studying hotel management before switching to computer science. Today I'm in a **dual education program** between **Deutsche Telekom** and **SPŠE Košice**: half academic theory, half hands-on work on real cloud infrastructure.
 
 Away from work and school I daily-drive Arch-based Linux (CachyOS), run a small homelab, build web projects, and study Japanese.
 
@@ -38,12 +34,12 @@ Away from work and school I daily-drive Arch-based Linux (CachyOS), run a small 
   <img src="assets/stack-dark.svg" alt="Stack — cloud & infrastructure: Kubernetes, Docker, Terraform, AWS · systems: Arch Linux/CachyOS, Bash, PowerShell · languages: Python, JavaScript, HTML/CSS · tooling: Git, Vim, VS Code" width="100%">
 </picture>
 
-## Pipeline
+## Persona
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/pipeline-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/pipeline-light.svg">
-  <img src="assets/pipeline-dark.svg" alt="CI/CD pipeline — commit (git) → build (docker) → provision (terraform) → deploy (kubernetes), all stages passing" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/persona-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/persona-light.svg">
+  <img src="assets/persona-dark.svg" alt="Persona card — Matej Papaj, DevOps intern @ Deutsche Telekom, Košice, Slovakia. On GitHub since 2024, 12+ public repos, a 50/50 school and work split. Languages: Slovak native, English C1, Japanese N4, German A2" width="100%">
 </picture>
 
 <br>
@@ -57,5 +53,10 @@ Away from work and school I daily-drive Arch-based Linux (CachyOS), run a small 
 </picture>
 
 <sub>[Portfolio](https://matejejko.github.io) · [LinkedIn](https://sk.linkedin.com/in/matej-p-a2abb72b2) · [Instagram](https://instagram.com/matejejko)</sub>
+
+<br>
+<br>
+
+<sub>The portrait in the terminal is generated from my GitHub avatar — see <a href="tools/generate-portrait.py"><code>tools/generate-portrait.py</code></a>.</sub>
 
 </div>

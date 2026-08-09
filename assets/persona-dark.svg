@@ -1,0 +1,107 @@
+<svg width="840" height="264" viewBox="0 0 840 264" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Persona card for Matej Papaj, DevOps intern at Deutsche Telekom in Košice, Slovakia. On GitHub since 2024, 12+ public repos, a 50/50 school and work split. Languages: Slovak native, English C1, Japanese N4, German A2.">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif; }
+    .name { font-size: 19px; font-weight: 700; }
+    .tag  { font-size: 13px; }
+    .sec  { font-size: 10px; font-weight: 600; letter-spacing: 2px; }
+    .cap  { font-size: 9px;  font-weight: 600; letter-spacing: 1px; }
+    .pill { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; }
+    .mono, .num, .lang, .lvl { font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace; }
+    .num  { font-size: 26px; font-weight: 700; }
+    .lang { font-size: 13px; }
+    .lvl  { font-size: 12px; }
+    .mono { font-size: 15px; font-weight: 700; }
+
+    .unit { opacity: 0; transform: translateY(8px); animation: rise 0.5s ease-out forwards; }
+    .bar  { transform-box: fill-box; transform-origin: left center; transform: scaleX(0); animation: grow 0.9s cubic-bezier(.2,.7,.3,1) forwards; }
+    .led  { animation: blink 2.4s ease-in-out infinite; }
+    .ring { transform-box: fill-box; transform-origin: center; opacity: 0; animation: pulse 3s ease-out 1s infinite; }
+    @keyframes rise  { to { opacity: 1; transform: translateY(0); } }
+    @keyframes grow  { to { transform: scaleX(1); } }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+    @keyframes pulse {
+      0%   { transform: scale(0.6); opacity: 0.7; }
+      70%  { transform: scale(2.4); opacity: 0; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .unit { animation: none; opacity: 1; transform: none; }
+      .bar  { animation: none; transform: none; }
+      .led  { animation: none; }
+      .ring { display: none; }
+    }
+  </style>
+
+  <rect x="1.5" y="1.5" width="837" height="261" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- header -->
+  <g class="unit" style="animation-delay:.05s">
+    <rect x="28" y="24" width="48" height="48" rx="10" fill="#0d2417" stroke="#3fb950" stroke-width="1.5"/>
+    <text class="mono" x="52" y="54" text-anchor="middle" fill="#3fb950">MP</text>
+    <text class="name" x="92" y="46" fill="#e6edf3">Matej Papaj</text>
+    <text class="tag"  x="92" y="67" fill="#8b949e">DevOps intern @ Deutsche Telekom · Košice, Slovakia</text>
+  </g>
+
+  <g class="unit" style="animation-delay:.18s">
+    <rect x="654" y="35" width="158" height="26" rx="13" fill="#0d2417" stroke="#3fb950"/>
+    <circle class="ring" cx="672" cy="48" r="4" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+    <circle class="led"  cx="672" cy="48" r="3.5" fill="#3fb950"/>
+    <text class="pill" x="686" y="52" fill="#3fb950">OPEN TO COLLAB</text>
+  </g>
+
+  <line x1="28" y1="94" x2="812" y2="94" stroke="#30363d"/>
+
+  <!-- section labels -->
+  <text class="sec" x="28"  y="116" fill="#484f58">AT A GLANCE</text>
+  <text class="sec" x="452" y="116" fill="#484f58">LANGUAGES</text>
+
+  <!-- stat tiles -->
+  <g>
+    <g class="unit" style="animation-delay:0.30s">
+      <rect x="28" y="126" width="124" height="86" rx="8" fill="#0d1117" stroke="#30363d"/>
+      <text class="num" x="90" y="168" text-anchor="middle" fill="#e6edf3">2024</text>
+      <text class="cap" x="90" y="188" text-anchor="middle" fill="#8b949e">ON GITHUB</text>
+      <text class="cap" x="90" y="201" text-anchor="middle" fill="#8b949e">SINCE</text>
+    </g>
+    <g class="unit" style="animation-delay:0.40s">
+      <rect x="160" y="126" width="124" height="86" rx="8" fill="#0d1117" stroke="#30363d"/>
+      <text class="num" x="222" y="168" text-anchor="middle" fill="#e6edf3">12+</text>
+      <text class="cap" x="222" y="188" text-anchor="middle" fill="#8b949e">PUBLIC</text>
+      <text class="cap" x="222" y="201" text-anchor="middle" fill="#8b949e">REPOS</text>
+    </g>
+    <g class="unit" style="animation-delay:0.50s">
+      <rect x="292" y="126" width="124" height="86" rx="8" fill="#0d1117" stroke="#30363d"/>
+      <text class="num" x="354" y="168" text-anchor="middle" fill="#e6edf3">50/50</text>
+      <text class="cap" x="354" y="188" text-anchor="middle" fill="#8b949e">SCHOOL &amp;</text>
+      <text class="cap" x="354" y="201" text-anchor="middle" fill="#8b949e">WORK</text>
+    </g>
+  </g>
+
+  <!-- language proficiency -->
+  <g>
+    <g class="unit" style="animation-delay:0.45s">
+      <text class="lang" x="452" y="152" fill="#e6edf3">Slovak</text>
+      <rect x="566" y="143" width="176" height="8" rx="4" fill="#21262d"/>
+      <rect class="bar" style="animation-delay:0.60s" x="566" y="143" width="176" height="8" rx="4" fill="#3fb950"/>
+      <text class="lvl" x="758" y="152" fill="#8b949e">native</text>
+    </g>
+    <g class="unit" style="animation-delay:0.55s">
+      <text class="lang" x="452" y="180" fill="#e6edf3">English</text>
+      <rect x="566" y="171" width="176" height="8" rx="4" fill="#21262d"/>
+      <rect class="bar" style="animation-delay:0.70s" x="566" y="171" width="137" height="8" rx="4" fill="#3fb950"/>
+      <text class="lvl" x="758" y="180" fill="#8b949e">C1</text>
+    </g>
+    <g class="unit" style="animation-delay:0.65s">
+      <text class="lang" x="452" y="208" fill="#e6edf3">Japanese</text>
+      <rect x="566" y="199" width="176" height="8" rx="4" fill="#21262d"/>
+      <rect class="bar" style="animation-delay:0.80s" x="566" y="199" width="67" height="8" rx="4" fill="#3fb950"/>
+      <text class="lvl" x="758" y="208" fill="#8b949e">N4</text>
+    </g>
+    <g class="unit" style="animation-delay:0.75s">
+      <text class="lang" x="452" y="236" fill="#e6edf3">German</text>
+      <rect x="566" y="227" width="176" height="8" rx="4" fill="#21262d"/>
+      <rect class="bar" style="animation-delay:0.90s" x="566" y="227" width="35" height="8" rx="4" fill="#3fb950"/>
+      <text class="lvl" x="758" y="236" fill="#8b949e">A2</text>
+    </g>
+  </g>
+</svg>
