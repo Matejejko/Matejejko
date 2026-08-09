@@ -36,12 +36,15 @@ LEVELS = 14
 
 # --- the portrait keeps moving: a share of cells cycle through glyphs -------
 SEED = 7                  # fixed, so regenerating gives the same art
-LIVE_FRACTION = 0.17      # share of eligible cells that animate
-LIVE_TONE = (0.10, 0.82)  # only mid-tones animate; highlights hold the likeness
-LIVE_GROUPS = 2           # independent timings per row, so a row never blinks as one
+LIVE_FRACTION = 0.35      # share of eligible cells that animate
+LIVE_TONE = (0.05, 1.00)  # a same-coverage swap costs no tone, so any cell may move
+LIVE_GROUPS = 3           # independent timings per row, so a row never blinks as one
 PHASES = 3                # glyphs each animated cell rotates through
-CYCLE_START = 2.8         # let the fetch finish drawing before anything moves
-SCAN_START = 3.0
+BUCKET_SPREAD = 0.055     # how far apart in coverage interchangeable glyphs may be
+BUCKET_SIZE = 5           # candidates kept per ramp level
+CYCLE = (1.5, 3.0)        # seconds for a full rotation through the phases
+CYCLE_START = 2.2         # let the fetch finish drawing before anything moves
+SCAN_START = 2.4
 
 # ---------------------------------------------------------------- palettes ---
 DARK = dict(
@@ -70,14 +73,19 @@ ROWS_INFO = [
 COMMAND = "fastfetch --logo ~/.face"
 
 
-def build_ramp():
-    """Order glyphs by measured ink coverage so tone steps are even."""
+def measure_coverage():
+    """Ink coverage of every candidate glyph, as a fraction of its cell."""
     font = ImageFont.truetype(MONO, 48)
     cov = {}
     for ch in CANDIDATES:
         img = Image.new("L", (48, 60), 0)
         ImageDraw.Draw(img).text((6, 2), ch, fill=255, font=font)
         cov[ch] = sum(img.convert("L").tobytes()) / (255 * 48 * 60)
+    return cov
+
+
+def build_ramp(cov):
+    """Order glyphs by measured ink coverage so tone steps are even."""
     lo, hi = min(cov.values()), max(cov.values())
     ramp = []
     for i in range(LEVELS):
@@ -88,7 +96,31 @@ def build_ramp():
     return "".join(ramp)
 
 
-RAMP = build_ramp()
+def build_buckets(cov, ramp):
+    """
+    Interchangeable glyphs for each ramp level.
+
+    Swapping a cell for its ramp neighbour barely reads at 10px -- `r` and `t`
+    are near enough to identical that the change is invisible. Swapping it for
+    a *different* character of the same ink coverage is obvious to the eye and
+    costs the portrait nothing, because the cell's density, and so the tone,
+    does not move.
+    """
+    span = max(cov.values()) - min(cov.values())
+    buckets = []
+    for ch in ramp:
+        near = sorted((c for c in CANDIDATES if not c.isspace()
+                       and abs(cov[c] - cov[ch]) <= span * BUCKET_SPREAD),
+                      key=lambda c: abs(cov[c] - cov[ch]))
+        if ch in near:
+            near.remove(ch)
+        buckets.append([ch] + near[:BUCKET_SIZE - 1])
+    return buckets
+
+
+COV = measure_coverage()
+RAMP = build_ramp(COV)
+BUCKETS = build_buckets(COV, RAMP)
 
 
 def tonemap():
@@ -242,14 +274,12 @@ def pick_live(grid, rng):
     live = {}
     for y, x in rng.sample(cand, round(len(cand) * LIVE_FRACTION)):
         i = max(1, min(len(RAMP) - 1, round(grid[y][x] * (len(RAMP) - 1))))
-        opts = []
-        for d in (-1, 0, 1):
-            g = RAMP[max(1, min(len(RAMP) - 1, i + d))]
-            if g not in opts:
-                opts.append(g)
-        while len(opts) < PHASES:
-            opts.append(RAMP[i])
+        opts = BUCKETS[i][:]
+        if len(opts) < 2:
+            continue
         rng.shuffle(opts)
+        while len(opts) < PHASES:
+            opts.append(opts[len(opts) % 2])
         live[(y, x)] = (opts[:PHASES], rng.randrange(LIVE_GROUPS))
     return live
 
@@ -281,7 +311,7 @@ def art_block(grid, theme):
                     if ly == y and g == group}
             if not here:
                 continue
-            dur = rng.uniform(3.4, 6.2)
+            dur = rng.uniform(*CYCLE)
             start = CYCLE_START + rng.uniform(0, dur)
             for phase in range(PHASES):
                 cells = [None] * COLS
