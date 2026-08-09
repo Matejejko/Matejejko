@@ -15,6 +15,7 @@ Requires DejaVu Sans Mono (or set MONO) only for the glyph-coverage pass.
 """
 import io
 import os
+import random
 import urllib.request
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -32,6 +33,15 @@ ART_X, ART_Y, ART_FS, ART_LH = 28, 112, 10, 11
 
 CANDIDATES = " .'`^\",:;-~+=<>ilItfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 LEVELS = 14
+
+# --- the portrait keeps moving: a share of cells cycle through glyphs -------
+SEED = 7                  # fixed, so regenerating gives the same art
+LIVE_FRACTION = 0.17      # share of eligible cells that animate
+LIVE_TONE = (0.10, 0.82)  # only mid-tones animate; highlights hold the likeness
+LIVE_GROUPS = 2           # independent timings per row, so a row never blinks as one
+PHASES = 3                # glyphs each animated cell rotates through
+CYCLE_START = 2.8         # let the fetch finish drawing before anything moves
+SCAN_START = 3.0
 
 # ---------------------------------------------------------------- palettes ---
 DARK = dict(
@@ -192,31 +202,101 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def art_rows(grid, theme):
-    """One <text> per line, colour runs collapsed into <tspan>s."""
+def text_row(cells, y, cls, style):
+    """
+    One <text> per line, colour runs collapsed into <tspan>s.
+
+    Cells stay in the text flow rather than being placed at absolute x, so a
+    reader whose monospace font has a different advance width still gets
+    columns that line up -- spaces reserve exactly the same width as glyphs.
+    """
+    runs = []
+    for cell in cells:
+        ch, key = cell if cell else (" ", None)
+        if runs and runs[-1][1] == key:
+            runs[-1][0] += ch
+        else:
+            runs.append([ch, key])
+    while runs and runs[-1][1] is None:
+        runs.pop()
+    if not runs:
+        return None
+    spans = "".join(
+        esc(t) if c is None else '<tspan fill="%s">%s</tspan>' % (c, esc(t))
+        for t, c in runs
+    )
+    return ('    <text class="%s" x="%d" y="%d" xml:space="preserve" style="%s">%s</text>'
+            % (cls, ART_X, ART_Y + y * ART_LH, style, spans))
+
+
+def pick_live(grid, rng):
+    """
+    Choose the cells that will keep cycling through glyphs.
+
+    Only mid-tones are eligible: swapping a glyph nudges a cell's density by
+    one ramp step, which is a shimmer in the half-lit areas but would punch
+    holes in the highlights that carry the likeness.
+    """
+    cand = [(y, x) for y in range(ROWS) for x in range(COLS)
+            if LIVE_TONE[0] <= grid[y][x] <= LIVE_TONE[1]]
+    live = {}
+    for y, x in rng.sample(cand, round(len(cand) * LIVE_FRACTION)):
+        i = max(1, min(len(RAMP) - 1, round(grid[y][x] * (len(RAMP) - 1))))
+        opts = []
+        for d in (-1, 0, 1):
+            g = RAMP[max(1, min(len(RAMP) - 1, i + d))]
+            if g not in opts:
+                opts.append(g)
+        while len(opts) < PHASES:
+            opts.append(RAMP[i])
+        rng.shuffle(opts)
+        live[(y, x)] = (opts[:PHASES], rng.randrange(LIVE_GROUPS))
+    return live
+
+
+def art_block(grid, theme):
+    """
+    The portrait, as a static base plus cycling glyph layers.
+
+    A cell that animates is cut out of the base row and re-emitted once per
+    phase in a layer of its own; the phases hand opacity to each other on a
+    loop, so the character in that cell keeps changing while its colour and
+    position hold still. Each row also sits in a group carrying a slow
+    brightness wave, offset by row, which reads as a scan drifting down.
+    """
+    rng = random.Random(SEED)
+    live = pick_live(grid, rng)
+    ink = theme["ink"]
     out = []
-    for y, row in enumerate(grid):
-        runs = []
-        for v in row:
-            ch = glyph(v)
-            key = None if ch == " " else shade(v, theme["ink"])
-            if runs and runs[-1][1] == key:
-                runs[-1][0] += ch
-            else:
-                runs.append([ch, key])
-        while runs and runs[-1][1] is None:
-            runs.pop()
-        if not runs:
+
+    for y in range(ROWS):
+        base = [None] * COLS
+        for x in range(COLS):
+            if grid[y][x] > 0.0 and (y, x) not in live:
+                base[x] = (glyph(grid[y][x]), shade(grid[y][x], ink))
+        rows = [text_row(base, y, "art fade", "animation-delay:%.2fs" % (1.45 + y * 0.018))]
+
+        for group in range(LIVE_GROUPS):
+            here = {x: opts for (ly, x), (opts, g) in live.items()
+                    if ly == y and g == group}
+            if not here:
+                continue
+            dur = rng.uniform(3.4, 6.2)
+            start = CYCLE_START + rng.uniform(0, dur)
+            for phase in range(PHASES):
+                cells = [None] * COLS
+                for x, opts in here.items():
+                    cells[x] = (opts[phase], shade(grid[y][x], ink))
+                style = "animation:%sph%d %.2fs %.2fs infinite;" % (
+                    "show .45s %.2fs ease-out forwards," % (1.45 + y * 0.018) if phase == 0 else "",
+                    phase, dur, start)
+                rows.append(text_row(cells, y, "art lv p%d" % phase, style))
+
+        rows = [r for r in rows if r]
+        if not rows:
             continue
-        spans = "".join(
-            esc(t) if c is None else '<tspan fill="%s">%s</tspan>' % (c, esc(t))
-            for t, c in runs
-        )
-        out.append(
-            '    <text class="art fade" x="%d" y="%d" xml:space="preserve" '
-            'style="animation-delay:%.2fs">%s</text>'
-            % (ART_X, ART_Y + y * ART_LH, 1.45 + y * 0.018, spans)
-        )
+        out.append('    <g class="scan" style="animation-delay:%.2fs">\n%s\n    </g>'
+                   % (SCAN_START + y * 0.10, "\n".join(rows)))
     return "\n".join(out)
 
 
@@ -279,12 +359,25 @@ def build(grid, theme):
     .fade {{ opacity: 0; animation: show 0.45s ease-out forwards; }}
     .cursor     {{ animation: blink 1.1s step-end infinite; }}
     .cursor-cmd {{ animation: blink 1.1s step-end infinite, hide 0.1s {hide:.2f}s forwards; }}
+
+    /* animated portrait cells: three glyph layers handing opacity to each other */
+    .lv   {{ opacity: 0; }}
+    .scan {{ animation: scan 6s ease-in-out infinite; }}
+
     @keyframes show  {{ to {{ opacity: 1; }} }}
     @keyframes blink {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0; }} }}
     @keyframes hide  {{ to {{ opacity: 0; }} }}
+    @keyframes scan  {{ 0%, 66%, 100% {{ opacity: 1; }} 83% {{ opacity: 0.78; }} }}
+    @keyframes ph0 {{ 0%, 30% {{ opacity: 1; }} 36%, 94% {{ opacity: 0; }} 100% {{ opacity: 1; }} }}
+    @keyframes ph1 {{ 0%, 30% {{ opacity: 0; }} 36%, 63% {{ opacity: 1; }} 69%, 100% {{ opacity: 0; }} }}
+    @keyframes ph2 {{ 0%, 63% {{ opacity: 0; }} 69%, 94% {{ opacity: 1; }} 100% {{ opacity: 0; }} }}
+
     @media (prefers-reduced-motion: reduce) {{
       .c, .fade {{ animation: none; opacity: 1; }}
       .cursor-cmd {{ animation: none; opacity: 0; }}
+      .lv    {{ animation: none !important; }}
+      .lv.p0 {{ opacity: 1; }}
+      .scan  {{ animation: none; }}
     }}
   </style>
 
@@ -301,7 +394,7 @@ def build(grid, theme):
 
   <!-- text-art portrait, generated from the GitHub avatar -->
   <g>
-{art_rows(grid, t)}
+{art_block(grid, t)}
   </g>
 
   <!-- fetch output -->
