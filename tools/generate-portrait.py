@@ -18,18 +18,18 @@ import os
 import random
 import urllib.request
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 AVATAR = "https://avatars.githubusercontent.com/u/155886081?v=4&s=460"
 MONO = os.environ.get("MONO", "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf")
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 
-COLS, ROWS = 68, 37
+COLS, ROWS = 96, 52
 CROP = (0.21, 0.01, 0.81, 0.61)          # square, framed tight on the head
 BLACK, WHITE, GAMMA, CRISP = 43, 141, 0.60, 150
 
 # glyph cell metrics inside the SVG
-ART_X, ART_Y, ART_FS, ART_LH = 28, 112, 10, 11
+ART_X, ART_Y, ART_FS, ART_LH = 28, 108, 7, 8
 
 CANDIDATES = " .'`^\",:;-~+=<>ilItfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 LEVELS = 14
@@ -40,8 +40,7 @@ LIVE_FRACTION = 0.35      # share of eligible cells that animate
 LIVE_TONE = (0.05, 1.00)  # a same-coverage swap costs no tone, so any cell may move
 LIVE_GROUPS = 3           # independent timings per row, so a row never blinks as one
 PHASES = 3                # glyphs each animated cell rotates through
-BUCKET_SPREAD = 0.055     # how far apart in coverage interchangeable glyphs may be
-BUCKET_SIZE = 5           # candidates kept per ramp level
+BUCKET_SPREAD = 0.060     # how far apart in coverage interchangeable glyphs may be
 CYCLE = (1.5, 3.0)        # seconds for a full rotation through the phases
 CYCLE_START = 2.2         # let the fetch finish drawing before anything moves
 SCAN_START = 2.4
@@ -107,15 +106,18 @@ def build_buckets(cov, ramp):
     does not move.
     """
     span = max(cov.values()) - min(cov.values())
-    buckets = []
-    for ch in ramp:
-        near = sorted((c for c in CANDIDATES if not c.isspace()
-                       and abs(cov[c] - cov[ch]) <= span * BUCKET_SPREAD),
-                      key=lambda c: abs(cov[c] - cov[ch]))
-        if ch in near:
-            near.remove(ch)
-        buckets.append([ch] + near[:BUCKET_SIZE - 1])
-    return buckets
+    return [[c for c in CANDIDATES if not c.isspace()
+             and abs(cov[c] - cov[ch]) <= span * BUCKET_SPREAD] or [ch]
+            for ch in ramp]
+
+
+def luma(img):
+    """Red de-weighted: the crimson backdrop falls away, skin and cloth stay."""
+    r, g, b = img.split()
+    return ImageChops.add(
+        ImageChops.add(r.point(lambda v: round(v * 0.15)),
+                       g.point(lambda v: round(v * 0.65))),
+        b.point(lambda v: round(v * 0.20)))
 
 
 COV = measure_coverage()
@@ -123,21 +125,17 @@ RAMP = build_ramp(COV)
 BUCKETS = build_buckets(COV, RAMP)
 
 
-def tonemap():
+def source():
     with urllib.request.urlopen(AVATAR) as r:
         img = Image.open(io.BytesIO(r.read())).convert("RGB")
     w, h = img.size
-    img = img.crop((int(w * CROP[0]), int(h * CROP[1]),
-                    int(w * CROP[2]), int(h * CROP[3])))
-    small = img.resize((COLS, ROWS), Image.LANCZOS)
+    return img.crop((int(w * CROP[0]), int(h * CROP[1]),
+                     int(w * CROP[2]), int(h * CROP[3])))
 
-    lum = Image.new("L", (COLS, ROWS))
-    for y in range(ROWS):
-        for x in range(COLS):
-            R, G, B = small.getpixel((x, y))
-            lum.putpixel((x, y), min(255, round(0.15 * R + 0.65 * G + 0.20 * B)))
+
+def tonemap(img):
+    lum = luma(img.resize((COLS, ROWS), Image.LANCZOS))
     lum = lum.filter(ImageFilter.UnsharpMask(radius=1, percent=CRISP, threshold=0))
-
     span = WHITE - BLACK
     grid = [[max(0.0, min(1.0, (lum.getpixel((x, y)) - BLACK) / span)) ** GAMMA
              for x in range(COLS)] for y in range(ROWS)]
@@ -182,7 +180,7 @@ def despeckle(grid, thresh=0.18):
     return out
 
 
-def drop_islands(grid, min_size=14):
+def drop_islands(grid, min_size=None):
     """
     Erase small detached blobs.
 
@@ -190,6 +188,8 @@ def drop_islands(grid, min_size=14):
     glint -- survive the tone curve but land far from the subject, where they
     read as dirt on the terminal rather than as part of the portrait.
     """
+    if min_size is None:
+        min_size = max(8, round(14 * (COLS * ROWS) / (68 * 37)))
     out = [row[:] for row in grid]
     seen = [[False] * COLS for _ in range(ROWS)]
     for sy in range(ROWS):
@@ -273,8 +273,8 @@ def pick_live(grid, rng):
             if LIVE_TONE[0] <= grid[y][x] <= LIVE_TONE[1]]
     live = {}
     for y, x in rng.sample(cand, round(len(cand) * LIVE_FRACTION)):
-        i = max(1, min(len(RAMP) - 1, round(grid[y][x] * (len(RAMP) - 1))))
-        opts = BUCKETS[i][:]
+        opts = BUCKETS[max(1, min(len(RAMP) - 1,
+                                  round(grid[y][x] * (len(RAMP) - 1))))][:]
         if len(opts) < 2:
             continue
         rng.shuffle(opts)
@@ -444,7 +444,8 @@ def build(grid, theme):
 
 
 if __name__ == "__main__":
-    grid = tonemap()
+    img = source()
+    grid = tonemap(img)
     path = os.path.join(ROOT, "assets", "terminal.svg")
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(build(grid, DARK))
